@@ -22,6 +22,18 @@ This Streamlit-based chatbot:
 
 ### 1. Clone the repository
 
-```bash
 git clone https://github.com/nukendrathota/query-memory-assistant.git
 cd query-memory-assistant
+
+### 2. Install dependencies
+
+https://platform.openai.com/docs/api-reference/embeddings
+
+### 3. Setup Environment Files
+
+OPENAI_API_KEY=your_openai_api_key_here
+DB_URL=postgresql://user:password@host:port/dbname
+
+### 4. Run the App
+
+streamlit run app.py
