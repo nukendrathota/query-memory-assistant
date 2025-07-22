@@ -16,7 +16,7 @@ This Streamlit-based chatbot:
 - [Streamlit](https://streamlit.io/)
 - [OpenAI API](https://platform.openai.com/)
 - [PostgreSQL + pgvector](https://github.com/pgvector/pgvector)
-- [Sentence Transformers](https://www.sbert.net/) or `openai.embeddings`
+- [OpenAI Embeddings API](https://platform.openai.com/docs/api-reference/embeddings)
 
 ## Getting Started
 
