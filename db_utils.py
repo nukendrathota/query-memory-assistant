@@ -14,7 +14,7 @@ PG_CONN = {
     "port": 5432,
     "dbname": "maitai",
     "user": "postgres",
-    "password": "wtava7as!A"
+    "password": os.getenv("PG_PASSWORD")
 }
 
 def get_embedding(text):

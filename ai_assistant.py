@@ -9,6 +9,7 @@ from openai._exceptions import OpenAIError, RateLimitError, APIConnectionError, 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=OPENAI_API_KEY)
+PG_PASSWORD = os.getenv("PG_PASSWORD")
 
 # PostgreSQL connection
 PG_CONN = {
@@ -16,7 +17,7 @@ PG_CONN = {
     "port": 5432,
     "dbname": "maitai",
     "user": "postgres",
-    "password": "wtava7as!A"  # Replace if not already in .env
+    "password": PG_PASSWORD
 }
 
 def get_embedding(text):
