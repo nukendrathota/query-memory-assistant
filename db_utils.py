@@ -2,19 +2,18 @@
 import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from dotenv import load_dotenv
 from openai import OpenAI, APIConnectionError, APITimeoutError, RateLimitError, OpenAIError
+import streamlit as st
 
-# Load .env
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 PG_CONN = {
-    "host": "localhost",
-    "port": 5432,
-    "dbname": "maitai",
-    "user": "postgres",
-    "password": os.getenv("PG_PASSWORD")
+    "host": st.secrets["PG_HOST"],
+    "database": st.secrets["PG_DATABASE"],
+    "user": st.secrets["PG_USER"],
+    "password": st.secrets["PG_PASSWORD"]
 }
 
 def get_embedding(text):
