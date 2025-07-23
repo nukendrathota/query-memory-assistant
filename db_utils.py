@@ -11,7 +11,7 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 PG_CONN = {
     "host": st.secrets["PG_HOST"],
-    "port": st.secrets["PG_PORT"]
+    "port": st.secrets["PG_PORT"],
     "database": st.secrets["PG_DATABASE"],
     "user": st.secrets["PG_USER"],
     "password": st.secrets["PG_PASSWORD"]
