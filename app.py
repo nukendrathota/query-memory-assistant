@@ -4,7 +4,7 @@ from db_utils import get_embedding, find_similar_inference, generate_response, s
 
 st.set_page_config(page_title="Mini AI Assistant", layout="centered")
 
-st.title("🧠 Ask the Assistant")
+st.title("🧠 Ask the AI Assistant")
 user_input = st.text_input("Type your question here:")
 
 if st.button("Submit") and user_input.strip():
@@ -12,19 +12,23 @@ if st.button("Submit") and user_input.strip():
         embedding = get_embedding(user_input)
 
     if not embedding:
-        st.error("Failed to generate embedding. Please check your internet/API connection.")
+        st.error("❌ Failed to generate embedding. Please check your internet/API connection.")
     else:
+        st.success("✅ Step 1: Embedding generated successfully.")
+
         with st.spinner("Checking for similar cached responses..."):
             match = find_similar_inference(embedding)
 
         if match and match["distance"] < 0.1:
-            st.success("✅ Found cached answer:")
+            st.success("✅ Step 2: Found similar cached response.")
             st.write(match["output_text"])
             st.caption(f"🔁 Similarity distance: {match['distance']:.4f}")
         else:
-            with st.spinner("No match found. Generating fresh answer..."):
+            st.success("✅ Step 2: No similar cached response found in database.")
+
+            with st.spinner("Generating a fresh answer..."):
                 response = generate_response(user_input)
 
-            st.success("🤖 Fresh AI answer:")
+            st.success("✅ Step 3: A new AI-generated response is displayed below.")
             st.write(response)
             save_inference(user_input, "gpt-3.5-turbo", response, embedding)
