@@ -4,7 +4,7 @@ from db_utils import get_embedding, find_similar_inference, generate_response, s
 
 st.set_page_config(page_title="Mini AI Assistant", layout="centered")
 
-st.title("🧠 Ask the AI Assistant")
+st.title("🧠 Ask the Assistant")
 user_input = st.text_input("Type your question here:")
 
 if st.button("Submit") and user_input.strip():
